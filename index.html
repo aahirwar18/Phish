@@ -2,116 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Phishing Awareness</title>
+  <title>NaBFID | Phishing Simulation Awareness</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
     body {
-      background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
-      min-height: 100vh;
+      background: linear-gradient(135deg, #eef4fb 0%, #c9e0fa 100%);
       font-family: 'Segoe UI', Arial, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      color: #1a2130;
     }
-    .card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 8px 32px 0 rgba(44,83,100,0.3);
-      padding: 36px 32px;
-      max-width: 420px;
-      width: 100%;
+    .banner {
+      background: #123b6f;
+      color: #fff;
+      padding: 28px 0 18px 0;
       text-align: center;
-      animation: slide-in 0.7s cubic-bezier(.48,1.65,.31,.92);
+      font-size: 2.1em;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      box-shadow: 0 2px 12px 0 rgba(18,59,111,0.07);
     }
-    @keyframes slide-in {
-      from { transform: translateY(80px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+    .content {
+      max-width: 1100px;
+      margin: 38px auto 0 auto;
+      display: flex;
+      gap: 38px;
+      align-items: flex-start;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 32px rgba(44,83,100,0.14);
+      padding: 32px 38px 24px 38px;
     }
-    .phish-icon {
-      font-size: 50px;
-      color: #e74c3c;
-      margin-bottom: 12px;
+    .left {
+      flex: 1.1;
+      border-right: 2px solid #e3e9f2;
+      padding-right: 32px;
+      min-width: 340px;
+    }
+    .right {
+      flex: 1.6;
+      padding-left: 32px;
+      min-width: 350px;
     }
     h1 {
       color: #e74c3c;
-      font-size: 2rem;
-      margin-bottom: 0.4em;
-      font-weight: 700;
+      font-size: 2em;
+      margin-bottom: 10px;
+      font-weight: 800;
+      letter-spacing: .2px;
     }
     .alert {
-      color: #111;
-      font-weight: 600;
-      font-size: 1.08em;
       background: #fce8e6;
-      padding: 10px 14px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      border-left: 4px solid #e74c3c;
+      border-left: 6px solid #e74c3c;
+      padding: 12px 18px;
+      font-weight: 500;
+      margin-bottom: 26px;
+      font-size: 1.13em;
+      border-radius: 7px;
     }
-    ul {
-      text-align: left;
-      margin: 18px 0 16px 0;
-      padding-left: 22px;
-      font-size: 0.98em;
-    }
-    ul li {
-      margin-bottom: 10px;
+    .phish-icon {
+      font-size: 48px;
+      margin-right: 10px;
+      vertical-align: middle;
+      position: relative; top: 5px;
     }
     .section-title {
-      font-weight: 600;
-      color: #0f2027;
-      margin: 22px 0 7px 0;
-      font-size: 1.05em;
+      font-weight: 700;
+      color: #123b6f;
+      margin: 27px 0 9px 0;
+      font-size: 1.15em;
+      letter-spacing: 1px;
     }
     .ai-badge {
       display: inline-block;
-      font-size: 0.85em;
-      background: #0f2027;
+      font-size: 0.95em;
+      background: #1e6ee2;
       color: #fff;
       border-radius: 6px;
-      padding: 3px 10px;
-      margin-left: 4px;
+      padding: 3px 13px 3px 13px;
+      margin-left: 7px;
       letter-spacing: 1px;
     }
-    .footer {
-      margin-top: 28px;
-      color: #444;
-      font-size: 0.97em;
-      opacity: 0.8;
+    ul {
+      margin-top: 8px;
+      margin-bottom: 20px;
+      padding-left: 23px;
+      line-height: 1.65;
     }
-    @media (max-width: 600px) {
-      .card { padding: 22px 6px; }
+    ul li {
+      margin-bottom: 10px;
+      font-size: 1.08em;
+    }
+    .footer {
+      margin-top: 38px;
+      color: #6b7993;
+      font-size: 1em;
+      opacity: 0.94;
+      text-align: center;
+    }
+    .org-logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 28px;
+    }
+    .org-logo img {
+      height: 44px;
+    }
+    .org-logo span {
+      font-size: 1.23em;
+      font-weight: 700;
+      color: #123b6f;
+      letter-spacing: 1.5px;
+    }
+    @media (max-width: 960px) {
+      .content { flex-direction: column; padding: 22px 8px; }
+      .left, .right { min-width: unset; border-right: none; padding: 0; }
+      .right { padding-top: 32px; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="phish-icon">⚠️</div>
-    <h1>You Have Been Phished!</h1>
-    <div class="alert">
-      This was a Phishing simulation exercise by NaBFID.<br>
-      <span style="color:#e74c3c;">No credentials were recorded.</span>
+  <div class="banner">
+    NaBFID Phishing Simulation Awareness
+  </div>
+  <div class="content">
+    <div class="left">
+      <div class="org-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1200px-Microsoft_logo.svg.png" alt="NaBFID Logo" />
+        <span>NaBFID</span>
+      </div>
+      <h1><span class="phish-icon">⚠️</span> You Have Been Phished!</h1>
+      <div class="alert">
+        This was a Phishing simulation exercise by NaBFID.<br>
+        <span style="color:#e74c3c; font-weight:600;">No credentials were recorded.</span>
+      </div>
+      <div class="section-title">What To Do Now</div>
+      <ul>
+        <li>Change your password immediately if you entered it on any suspicious page.</li>
+        <li>Report the phishing attempt to the IT/Security team (<a href="mailto:infosec@nabfid.org">infosec@nabfid.org</a>).</li>
+        <li>When in doubt, always verify requests before clicking links or entering credentials.</li>
+      </ul>
+      <div class="section-title">Helpful Resource</div>
+      <ul>
+        <li><a href="https://staysafeonline.org/" target="_blank">staysafeonline.org</a></li>
+      </ul>
     </div>
-    <div class="section-title">How to Spot & Stop Phishing <span class="ai-badge">AI Awareness</span></div>
-    <ul>
-      <li><b>Double-check the sender:</b> Don’t trust email display names alone. Always inspect the email address.</li>
-      <li><b>Check links:</b> Hover over links to see the real web address. Be extra cautious with misspellings or unusual domains.</li>
-      <li><b>Be alert for AI-generated messages:</b> Attackers use AI to craft convincing emails, fake login pages, and even deepfake calls.</li>
-      <li><b>Never share sensitive info:</b> Real companies or IT teams will never ask for your password over email or chat.</li>
-      <li><b>Look for urgency:</b> Messages that demand immediate action (“Your account will be locked!”) are classic red flags.</li>
-      <li><b>Check for odd language:</b> Even AI-written text can have strange phrasing or be overly generic.</li>
-    </ul>
-    <div class="section-title">What To Do If You Suspect Phishing</div>
-    <ul>
-      <li>Report suspicious emails or sites to your IT/Security team right away.</li>
-      <li>Do NOT enter passwords or download attachments if you have doubts.</li>
-      <li>If you clicked a suspicious link, change your password immediately and notify IT.</li>
-    </ul>
-    <div class="footer">
-      Stay safe—question unexpected messages, and always verify requests before acting.<br>
-      <span style="font-size:0.94em;">Learn more at <a href="https://staysafeonline.org/" target="_blank">StaySafeOnline.org</a></span>
+    <div class="right">
+      <div class="section-title">How to Spot & Stop Phishing <span class="ai-badge">AI Awareness</span></div>
+      <ul>
+        <li><b>Check the sender:</b> Do not rely on display names. Inspect the full email address.</li>
+        <li><b>Look before you click:</b> Hover over links and check the actual web address (URL). Watch for misspellings or unusual domains.</li>
+        <li><b>AI-crafted threats:</b> Attackers use AI to generate realistic emails and even clone real login pages. Stay vigilant for subtle errors or unexpected messages.</li>
+        <li><b>Be cautious with urgency:</b> If a message tries to make you act fast (“reset your password now!”), pause and verify.</li>
+        <li><b>Watch for deepfakes:</b> New attacks may include fake audio or video calls from “bosses” or “HR”—always double check via a known channel.</li>
+        <li><b>Never share sensitive info:</b> IT or HR will never ask for your password or OTP over email, phone, or chat.</li>
+        <li><b>Odd language or tone:</b> Even AI-generated text can be generic, overly formal, or slightly “off.”</li>
+      </ul>
+      <div class="section-title">Remember</div>
+      <ul>
+        <li>Phishing simulations are designed to help you learn and protect yourself.</li>
+        <li>When in doubt, **never click or reply**—contact your IT/security team.</li>
+      </ul>
     </div>
+  </div>
+  <div class="footer">
+    &copy; 2025 NaBFID | For internal awareness use only.<br>
+    <span style="font-size:0.95em;">Designed by the Information Security Team</span>
   </div>
 </body>
 </html>
