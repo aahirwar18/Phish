@@ -1,27 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>You have been phished!</title>
+  <meta charset="UTF-8">
+  <title>Phishing Awareness</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
-    body { background: #f7fafc; font-family: Arial, sans-serif; }
-    .container {
-      max-width: 400px; margin: 80px auto; background: #fff;
-      padding: 30px 40px; border-radius: 10px;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.1); text-align: center;
+    body {
+      background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+      min-height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
     }
-    h1 { color: #e74c3c; margin-bottom: 24px;}
-    p { color: #333; margin-bottom: 16px;}
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 rgba(44,83,100,0.3);
+      padding: 36px 32px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      animation: slide-in 0.7s cubic-bezier(.48,1.65,.31,.92);
+    }
+    @keyframes slide-in {
+      from { transform: translateY(80px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .phish-icon {
+      font-size: 50px;
+      color: #e74c3c;
+      margin-bottom: 12px;
+    }
+    h1 {
+      color: #e74c3c;
+      font-size: 2rem;
+      margin-bottom: 0.4em;
+      font-weight: 700;
+    }
+    .alert {
+      color: #111;
+      font-weight: 600;
+      font-size: 1.08em;
+      background: #fce8e6;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 4px solid #e74c3c;
+    }
+    ul {
+      text-align: left;
+      margin: 18px 0 16px 0;
+      padding-left: 22px;
+      font-size: 0.98em;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-weight: 600;
+      color: #0f2027;
+      margin: 22px 0 7px 0;
+      font-size: 1.05em;
+    }
+    .ai-badge {
+      display: inline-block;
+      font-size: 0.85em;
+      background: #0f2027;
+      color: #fff;
+      border-radius: 6px;
+      padding: 3px 10px;
+      margin-left: 4px;
+      letter-spacing: 1px;
+    }
+    .footer {
+      margin-top: 28px;
+      color: #444;
+      font-size: 0.97em;
+      opacity: 0.8;
+    }
+    @media (max-width: 600px) {
+      .card { padding: 22px 6px; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>You have been phished!</h1>
-    <p>
-      This was a simulated exercise to help you recognize phishing attempts.<br>
-      <b>Never enter your password on suspicious sites.</b><br>
-      Always check the URL and report suspected phishing to IT.
-    </p>
-    <p style="font-size:12px; color:gray;">(No credentials were stored.)</p>
+  <div class="card">
+    <div class="phish-icon">⚠️</div>
+    <h1>You Have Been Phished!</h1>
+    <div class="alert">
+      This was a simulated exercise by your organization.<br>
+      <span style="color:#e74c3c;">No credentials were recorded.</span>
+    </div>
+    <div class="section-title">How to Spot & Stop Phishing <span class="ai-badge">AI Awareness</span></div>
+    <ul>
+      <li><b>Double-check the sender:</b> Don’t trust email display names alone. Always inspect the email address.</li>
+      <li><b>Check links:</b> Hover over links to see the real web address. Be extra cautious with misspellings or unusual domains.</li>
+      <li><b>Be alert for AI-generated messages:</b> Attackers use AI to craft convincing emails, fake login pages, and even deepfake calls.</li>
+      <li><b>Never share sensitive info:</b> Real companies or IT teams will never ask for your password over email or chat.</li>
+      <li><b>Look for urgency:</b> Messages that demand immediate action (“Your account will be locked!”) are classic red flags.</li>
+      <li><b>Check for odd language:</b> Even AI-written text can have strange phrasing or be overly generic.</li>
+    </ul>
+    <div class="section-title">What To Do If You Suspect Phishing</div>
+    <ul>
+      <li>Report suspicious emails or sites to your IT/Security team right away.</li>
+      <li>Do NOT enter passwords or download attachments if you have doubts.</li>
+      <li>If you clicked a suspicious link, change your password immediately and notify IT.</li>
+    </ul>
+    <div class="footer">
+      Stay safe—question unexpected messages, and always verify requests before acting.<br>
+      <span style="font-size:0.94em;">Learn more at <a href="https://staysafeonline.org/" target="_blank">StaySafeOnline.org</a></span>
+    </div>
   </div>
 </body>
 </html>
