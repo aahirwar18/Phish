@@ -16,7 +16,7 @@
     .banner {
       background: #123b6f;
       color: #fff;
-      padding: 28px 0 18px 0;
+      padding: 32px 0 20px 0;
       text-align: center;
       font-size: 2.1em;
       letter-spacing: 1.5px;
@@ -24,53 +24,83 @@
       box-shadow: 0 2px 12px 0 rgba(18,59,111,0.07);
     }
     .content {
-      max-width: 1100px;
-      margin: 38px auto 0 auto;
+      max-width: 1160px;
+      margin: 42px auto 0 auto;
       display: flex;
-      gap: 38px;
+      gap: 44px;
       align-items: flex-start;
       background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 6px 32px rgba(44,83,100,0.14);
-      padding: 32px 38px 24px 38px;
+      border-radius: 16px;
+      box-shadow: 0 6px 32px rgba(44,83,100,0.13);
+      padding: 40px 46px 32px 46px;
     }
     .left {
-      flex: 1.1;
+      flex: 1.2;
       border-right: 2px solid #e3e9f2;
-      padding-right: 32px;
+      padding-right: 38px;
       min-width: 340px;
     }
     .right {
-      flex: 1.6;
-      padding-left: 32px;
-      min-width: 350px;
+      flex: 1.8;
+      padding-left: 38px;
+      min-width: 370px;
+    }
+    .org-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .org-logo img {
+      height: 44px;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      background: #fff;
+    }
+    .org-logo span {
+      font-size: 1.22em;
+      font-weight: 700;
+      color: #123b6f;
+      letter-spacing: 1.5px;
+    }
+    .headline-wrap {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 0;
+    }
+    .phish-icon {
+      font-size: 2.1em;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      top: 3px;
     }
     h1 {
       color: #e74c3c;
-      font-size: 2em;
-      margin-bottom: 10px;
+      font-size: 1.8em;
+      margin: 0 0 10px 0;
       font-weight: 800;
-      letter-spacing: .2px;
+      letter-spacing: .1px;
+      line-height: 1.13;
+      display: inline-block;
+      vertical-align: middle;
     }
     .alert {
-      background: #fce8e6;
+      background: #fde4e1;
       border-left: 6px solid #e74c3c;
-      padding: 12px 18px;
+      padding: 15px 18px 15px 18px;
       font-weight: 500;
-      margin-bottom: 26px;
+      margin-bottom: 28px;
+      margin-top: 8px;
       font-size: 1.13em;
       border-radius: 7px;
-    }
-    .phish-icon {
-      font-size: 48px;
-      margin-right: 10px;
-      vertical-align: middle;
-      position: relative; top: 5px;
+      color: #8a1515;
     }
     .section-title {
       font-weight: 700;
       color: #123b6f;
-      margin: 27px 0 9px 0;
+      margin: 29px 0 9px 0;
       font-size: 1.15em;
       letter-spacing: 1px;
     }
@@ -88,38 +118,26 @@
       margin-top: 8px;
       margin-bottom: 20px;
       padding-left: 23px;
-      line-height: 1.65;
+      line-height: 1.7;
     }
     ul li {
       margin-bottom: 10px;
-      font-size: 1.08em;
+      font-size: 1.07em;
     }
     .footer {
-      margin-top: 38px;
+      margin-top: 48px;
       color: #6b7993;
       font-size: 1em;
-      opacity: 0.94;
+      opacity: 0.96;
       text-align: center;
+      letter-spacing: 0.2px;
     }
-    .org-logo {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      margin-bottom: 28px;
-    }
-    .org-logo img {
-      height: 44px;
-    }
-    .org-logo span {
-      font-size: 1.23em;
-      font-weight: 700;
-      color: #123b6f;
-      letter-spacing: 1.5px;
-    }
-    @media (max-width: 960px) {
-      .content { flex-direction: column; padding: 22px 8px; }
+    a { color: #124492; text-decoration: underline; }
+    a:hover { color: #e74c3c; }
+    @media (max-width: 1100px) {
+      .content { flex-direction: column; padding: 22px 6px; gap: 0; }
       .left, .right { min-width: unset; border-right: none; padding: 0; }
-      .right { padding-top: 32px; }
+      .right { padding-top: 40px; }
     }
   </style>
 </head>
@@ -130,10 +148,13 @@
   <div class="content">
     <div class="left">
       <div class="org-logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1200px-Microsoft_logo.svg.png" alt="NaBFID Logo" />
+        <img src="https://nabfid.org/uploads/images/logo-image.png" alt="NaBFID Logo" />
         <span>NaBFID</span>
       </div>
-      <h1><span class="phish-icon">⚠️</span> You Have Been Phished!</h1>
+      <div class="headline-wrap">
+        <span class="phish-icon">⚠️</span>
+        <h1>You Have Been Phished!</h1>
+      </div>
       <div class="alert">
         This was a Phishing simulation exercise by NaBFID.<br>
         <span style="color:#e74c3c; font-weight:600;">No credentials were recorded.</span>
@@ -163,13 +184,13 @@
       <div class="section-title">Remember</div>
       <ul>
         <li>Phishing simulations are designed to help you learn and protect yourself.</li>
-        <li>When in doubt, **never click or reply**—contact your IT/security team.</li>
+        <li>When in doubt, <b>never click or reply</b>—contact your IT/security team.</li>
       </ul>
     </div>
   </div>
   <div class="footer">
     &copy; 2025 NaBFID | For internal awareness use only.<br>
-    <span style="font-size:0.95em;">Designed by the Information Security Team</span>
+    Designed by the Information Security Team
   </div>
 </body>
 </html>
