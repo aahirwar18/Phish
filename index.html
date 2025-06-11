@@ -2,19 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>National Bank for Financing Infrastructure and Development | Phishing Simulation Awareness</title>
+  <title>NaBFID | Phishing Simulation Awareness</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
     body {
-      background: linear-gradient(135deg, #eef4fb 0%, #c9e0fa 100%);
+      background: linear-gradient(135deg, #eaf1fc 0%, #d4e2f9 100%);
       font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
       padding: 0;
       min-height: 100vh;
       color: #1a2130;
+      position: relative;
+      overflow-x: hidden;
+    }
+    /* Decorative shapes */
+    .decor-top-right {
+      position: absolute;
+      top: 0; right: 0;
+      width: 270px; height: 220px;
+      background: radial-gradient(circle at 85% 25%, #e0e9fa 70%, transparent 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .decor-bottom-left {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 230px; height: 170px;
+      background: radial-gradient(circle at 20% 90%, #e0e9fa 60%, transparent 100%);
+      z-index: 1;
+      pointer-events: none;
     }
     .banner {
-      background: #123b6f;
+      background: #143f7c;
       color: #fff;
       padding: 32px 0 20px 0;
       text-align: center;
@@ -22,46 +41,67 @@
       letter-spacing: 1.5px;
       font-weight: 700;
       box-shadow: 0 2px 12px 0 rgba(18,59,111,0.07);
+      z-index: 2;
+      position: relative;
     }
     .content {
-      max-width: 1160px;
-      margin: 42px auto 0 auto;
+      max-width: 1200px;
+      margin: 48px auto 0 auto;
       display: flex;
-      gap: 44px;
+      gap: 48px;
       align-items: flex-start;
       background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 6px 32px rgba(44,83,100,0.13);
-      padding: 40px 46px 32px 46px;
+      border-radius: 22px;
+      box-shadow: 0 10px 48px rgba(44,83,100,0.14);
+      padding: 50px 54px 42px 54px;
+      position: relative;
+      z-index: 2;
     }
     .left {
-      flex: 1.2;
-      border-right: 2px solid #e3e9f2;
+      flex: 1.1;
+      border-right: 2px solid #e5eaf5;
       padding-right: 38px;
-      min-width: 340px;
+      min-width: 350px;
+      position: relative;
     }
     .right {
-      flex: 1.8;
+      flex: 1.9;
       padding-left: 38px;
       min-width: 370px;
     }
-    .org-logo {
+    .org-logo-row {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 32px;
+      gap: 15px;
+      margin-bottom: 22px;
     }
-    .org-logo img {
-      height: 44px;
-      border-radius: 6px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    .org-logo-row img {
+      height: 54px;
+      border-radius: 7px;
       background: #fff;
+      box-shadow: 0 1px 4px rgba(20,63,124,0.09);
     }
-    .org-logo span {
-      font-size: 1.22em;
+    .org-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      line-height: 1.1;
+    }
+    .org-name {
+      font-size: 1.16em;
       font-weight: 700;
       color: #123b6f;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
+    }
+    .org-fullname {
+      font-size: 0.98em;
+      font-weight: 400;
+      color: #526180;
+      letter-spacing: 0.02em;
+      margin-top: 3px;
+      margin-bottom: 0;
+      max-width: 220px;
+      word-break: break-word;
     }
     .headline-wrap {
       display: flex;
@@ -70,7 +110,7 @@
       margin-bottom: 0;
     }
     .phish-icon {
-      font-size: 2.1em;
+      font-size: 2.2em;
       margin: 0;
       padding: 0;
       position: relative;
@@ -79,7 +119,7 @@
     h1 {
       color: #e74c3c;
       font-size: 1.8em;
-      margin: 0 0 10px 0;
+      margin: 0 0 12px 0;
       font-weight: 800;
       letter-spacing: .1px;
       line-height: 1.13;
@@ -89,25 +129,37 @@
     .alert {
       background: #fde4e1;
       border-left: 6px solid #e74c3c;
-      padding: 15px 18px 15px 18px;
+      padding: 14px 19px 13px 20px;
       font-weight: 500;
       margin-bottom: 28px;
       margin-top: 8px;
       font-size: 1.13em;
       border-radius: 7px;
       color: #8a1515;
+      box-shadow: 0 1px 8px rgba(240,94,73,0.07);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .alert-icon {
+      font-size: 1.23em;
+      margin-top: 2px;
+      margin-right: 6px;
     }
     .section-title {
       font-weight: 700;
       color: #123b6f;
-      margin: 29px 0 9px 0;
+      margin: 32px 0 8px 0;
       font-size: 1.15em;
       letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     .ai-badge {
       display: inline-block;
-      font-size: 0.95em;
-      background: #1e6ee2;
+      font-size: 0.96em;
+      background: #2063e7;
       color: #fff;
       border-radius: 6px;
       padding: 3px 13px 3px 13px;
@@ -115,22 +167,49 @@
       letter-spacing: 1px;
     }
     ul {
-      margin-top: 8px;
+      margin-top: 9px;
       margin-bottom: 20px;
-      padding-left: 23px;
+      padding-left: 28px;
       line-height: 1.7;
+      font-size: 1.08em;
     }
     ul li {
-      margin-bottom: 10px;
-      font-size: 1.07em;
+      margin-bottom: 11px;
+      padding-left: 1.7em;
+      position: relative;
+    }
+    .left ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #2467eb;
+      font-size: 1em;
+      font-weight: bold;
+      margin-right: 10px;
+      opacity: 0.8;
+      top: 2px;
+    }
+    .right ul li {
+      padding-left: 2em;
+    }
+    .right ul li::before {
+      content: "💡";
+      position: absolute;
+      left: 0;
+      color: #2467eb;
+      font-size: 1.12em;
+      opacity: 0.8;
+      top: 2px;
     }
     .footer {
       margin-top: 48px;
       color: #6b7993;
-      font-size: 1em;
-      opacity: 0.96;
+      font-size: 1.06em;
+      opacity: 0.98;
       text-align: center;
       letter-spacing: 0.2px;
+      z-index: 2;
+      position: relative;
     }
     a { color: #124492; text-decoration: underline; }
     a:hover { color: #e74c3c; }
@@ -138,26 +217,35 @@
       .content { flex-direction: column; padding: 22px 6px; gap: 0; }
       .left, .right { min-width: unset; border-right: none; padding: 0; }
       .right { padding-top: 40px; }
+      .decor-top-right, .decor-bottom-left { display: none; }
     }
   </style>
 </head>
 <body>
+  <div class="decor-top-right"></div>
+  <div class="decor-bottom-left"></div>
   <div class="banner">
     NaBFID Phishing Simulation Awareness
   </div>
   <div class="content">
     <div class="left">
-      <div class="org-logo">
+      <div class="org-logo-row">
         <img src="https://nabfid.org/uploads/images/logo-image.png" alt="NaBFID Logo" />
-        <span>NaBFID</span>
+        <div class="org-title">
+          <span class="org-name">NaBFID</span>
+          <span class="org-fullname">National Bank for Financing Infrastructure and Development</span>
+        </div>
       </div>
       <div class="headline-wrap">
         <span class="phish-icon">⚠️</span>
         <h1>You Have Been Phished!</h1>
       </div>
       <div class="alert">
-        This was a Phishing simulation exercise by NaBFID.<br>
-        <span style="color:#e74c3c; font-weight:600;">No credentials were recorded.</span>
+        <span class="alert-icon">❗</span>
+        <div>
+          This was a Phishing simulation exercise by NaBFID.<br>
+          <span style="color:#e74c3c; font-weight:600;">No credentials were recorded.</span>
+        </div>
       </div>
       <div class="section-title">What To Do Now</div>
       <ul>
@@ -181,7 +269,7 @@
         <li><b>Never share sensitive info:</b> IT or HR will never ask for your password or OTP over email, phone, or chat.</li>
         <li><b>Odd language or tone:</b> Even AI-generated text can be generic, overly formal, or slightly “off.”</li>
       </ul>
-      <div class="section-title">Remember</div>
+      <div class="section-title" style="margin-top: 36px;">Remember</div>
       <ul>
         <li>Phishing simulations are designed to help you learn and protect yourself.</li>
         <li>When in doubt, <b>never click or reply</b>—contact your IT/security team.</li>
